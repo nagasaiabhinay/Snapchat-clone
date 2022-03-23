@@ -10,7 +10,7 @@ import TimerIcon from '@material-ui/icons/Timer';
 import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
