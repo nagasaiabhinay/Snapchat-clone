@@ -14,6 +14,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
+import { selectUser } from './features/appSlice';
 import { resetCameraImage, selectCameraImage } from './features/cameraSlice';
 import { db, storage } from './firebase';
 import './Preview.css';
@@ -21,6 +22,7 @@ import './Preview.css';
 function Preview() {
 	const cameraImage = useSelector(selectCameraImage);
 	const navigate = useNavigate();
+	const user = useSelector(selectUser);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -57,7 +59,7 @@ function Preview() {
 							imageUrl: url,
 							username: 'Abhinay',
 							read: false,
-							//profile pic
+							profilePic: user.profilePic,
 							timestamp:
 								firebase.firestore.FieldValue.serverTimestamp(),
 						});
